@@ -1,0 +1,42 @@
+ИНСТРУКЦИЯ ПО БЫСТРОЙ НАСТРОЙКЕ ИНВЕНТАРЯ:
+
+Проблема: UI был настроен неправильно, показывает только квадраты и "New text".
+
+РЕШЕНИЕ - Следуйте этим шагам В UNITY EDITOR:
+
+1. УДАЛИТЕ старый InventoryCanvas из иерархии сцены
+
+2. ПКМ в Hierarchy → UI → Canvas (создастся Canvas + EventSystem)
+   Переименуйте в "InventoryCanvas"
+
+3. На InventoryCanvas добавьте компонент InventorySystem
+
+4. Создайте панель: ПКМ на Canvas → UI → Panel → назовите "InventoryPanel"
+   Настройки: 
+   - Width: 800, Height: 600
+   - Anchor: Center
+   - Цвет фона: темный с прозрачностью
+
+5. Создайте Grid: ПКМ на Panel → Create Empty → назовите "InventoryGrid"
+   Добавьте Grid Layout Group:
+   - Cell Size: 120x120
+   - Spacing: 10x10  
+   - Fixed Column Count: 5
+
+6. Создайте слот: ПКМ на Grid → UI → Image → назовите "ItemSlot"
+   Добавьте InventorySlot компонент
+   Внутри создайте: ItemIcon (Image), ItemName (TextMeshPro), EmptySlot (Panel)
+
+7. Перетащите ItemSlot в папку Prefabs, удалите из сцены
+
+8. В InventorySystem подключите ссылки:
+   - Inventory Panel → InventoryPanel
+   - Inventory Grid → InventoryGrid
+   - Inventory Slot Prefab → префаб ItemSlot
+
+9. Деактивируйте InventoryPanel (снимите галочку)
+
+10. Нажмите Play и жмите I для открытия инвентаря!
+
+Тестирование: нажимайте 1, 2, 3 для добавления предметов
+
