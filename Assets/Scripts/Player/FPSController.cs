@@ -17,13 +17,29 @@ namespace HorrorGame.Player
         [SerializeField] private AudioClip[] footstepSounds;
         [SerializeField] private float footstepInterval = 0.5f;
         
-        [Header("Teleport IN Settings")]
-        [SerializeField] private GameObject teleportObjectIN;
-        [SerializeField] private Vector3 teleportDestinationIN = new Vector3(0, 0, 0);
+        [Header("Teleport 1 Settings")]
+        [SerializeField] private GameObject teleportObject1;
+        [SerializeField] private GameObject teleportDestination1;
         
-        [Header("Teleport OUT Settings")]
-        [SerializeField] private GameObject teleportObjectOUT;
-        [SerializeField] private Vector3 teleportDestinationOUT = new Vector3(0, 0, 0);
+        [Header("Teleport 2 Settings")]
+        [SerializeField] private GameObject teleportObject2;
+        [SerializeField] private GameObject teleportDestination2;
+        
+        [Header("Teleport 3 Settings")]
+        [SerializeField] private GameObject teleportObject3;
+        [SerializeField] private GameObject teleportDestination3;
+        
+        [Header("Teleport 4 Settings")]
+        [SerializeField] private GameObject teleportObject4;
+        [SerializeField] private GameObject teleportDestination4;
+        
+        [Header("Teleport 5 Settings")]
+        [SerializeField] private GameObject teleportObject5;
+        [SerializeField] private GameObject teleportDestination5;
+        
+        [Header("Teleport 6 Settings")]
+        [SerializeField] private GameObject teleportObject6;
+        [SerializeField] private GameObject teleportDestination6;
         
         [Header("Shared Teleport Settings")]
         [SerializeField] private float teleportRange = 3f;
@@ -121,13 +137,55 @@ namespace HorrorGame.Player
             
             if (Physics.Raycast(ray, out hit, teleportRange, teleportLayerMask))
             {
-                if (teleportObjectIN != null && hit.collider.gameObject == teleportObjectIN)
+                GameObject hitObject = hit.collider.gameObject;
+                
+                if (teleportObject1 != null && hitObject == teleportObject1)
                 {
-                    TeleportPlayer(teleportDestinationIN, "IN");
+                    if (teleportDestination1 != null)
+                    {
+                        Vector3 destination = teleportDestination1.transform.position + teleportDestination1.transform.forward * 1f;
+                        TeleportPlayer(destination, "1");
+                    }
                 }
-                else if (teleportObjectOUT != null && hit.collider.gameObject == teleportObjectOUT)
+                else if (teleportObject2 != null && hitObject == teleportObject2)
                 {
-                    TeleportPlayer(teleportDestinationOUT, "OUT");
+                    if (teleportDestination2 != null)
+                    {
+                        Vector3 destination = teleportDestination2.transform.position + teleportDestination2.transform.forward * 1f;
+                        TeleportPlayer(destination, "2");
+                    }
+                }
+                else if (teleportObject3 != null && hitObject == teleportObject3)
+                {
+                    if (teleportDestination3 != null)
+                    {
+                        Vector3 destination = teleportDestination3.transform.position + teleportDestination3.transform.forward * 1f;
+                        TeleportPlayer(destination, "3");
+                    }
+                }
+                else if (teleportObject4 != null && hitObject == teleportObject4)
+                {
+                    if (teleportDestination4 != null)
+                    {
+                        Vector3 destination = teleportDestination4.transform.position + teleportDestination4.transform.forward * 1f;
+                        TeleportPlayer(destination, "4");
+                    }
+                }
+                else if (teleportObject5 != null && hitObject == teleportObject5)
+                {
+                    if (teleportDestination5 != null)
+                    {
+                        Vector3 destination = teleportDestination5.transform.position + teleportDestination5.transform.forward * 1f;
+                        TeleportPlayer(destination, "5");
+                    }
+                }
+                else if (teleportObject6 != null && hitObject == teleportObject6)
+                {
+                    if (teleportDestination6 != null)
+                    {
+                        Vector3 destination = teleportDestination6.transform.position + teleportDestination6.transform.forward * 1f;
+                        TeleportPlayer(destination, "6");
+                    }
                 }
             }
         }
@@ -137,7 +195,6 @@ namespace HorrorGame.Player
             characterController.enabled = false;
             transform.position = destination;
             
-            // Rotate 180 degrees for BOTH IN and OUT
             RotateCamera180();
             
             characterController.enabled = true;
@@ -147,7 +204,7 @@ namespace HorrorGame.Player
                 audioSource.PlayOneShot(teleportSound);
             }
             
-            Debug.Log($"Teleported {teleportType} to coordinates: {destination}");
+            Debug.Log($"Teleported {teleportType} to: {destination}");
         }
         
         void RotateCamera180()
@@ -177,24 +234,64 @@ namespace HorrorGame.Player
             return isRunning;
         }
         
-        public void SetTeleportObjectIN(GameObject newTeleportObject)
+        public void SetTeleportObject1(GameObject newTeleportObject)
         {
-            teleportObjectIN = newTeleportObject;
+            teleportObject1 = newTeleportObject;
         }
         
-        public void SetTeleportDestinationIN(Vector3 newDestination)
+        public void SetTeleportDestination1(GameObject newDestination)
         {
-            teleportDestinationIN = newDestination;
+            teleportDestination1 = newDestination;
         }
         
-        public void SetTeleportObjectOUT(GameObject newTeleportObject)
+        public void SetTeleportObject2(GameObject newTeleportObject)
         {
-            teleportObjectOUT = newTeleportObject;
+            teleportObject2 = newTeleportObject;
         }
         
-        public void SetTeleportDestinationOUT(Vector3 newDestination)
+        public void SetTeleportDestination2(GameObject newDestination)
         {
-            teleportDestinationOUT = newDestination;
+            teleportDestination2 = newDestination;
+        }
+        
+        public void SetTeleportObject3(GameObject newTeleportObject)
+        {
+            teleportObject3 = newTeleportObject;
+        }
+        
+        public void SetTeleportDestination3(GameObject newDestination)
+        {
+            teleportDestination3 = newDestination;
+        }
+        
+        public void SetTeleportObject4(GameObject newTeleportObject)
+        {
+            teleportObject4 = newTeleportObject;
+        }
+        
+        public void SetTeleportDestination4(GameObject newDestination)
+        {
+            teleportDestination4 = newDestination;
+        }
+        
+        public void SetTeleportObject5(GameObject newTeleportObject)
+        {
+            teleportObject5 = newTeleportObject;
+        }
+        
+        public void SetTeleportDestination5(GameObject newDestination)
+        {
+            teleportDestination5 = newDestination;
+        }
+        
+        public void SetTeleportObject6(GameObject newTeleportObject)
+        {
+            teleportObject6 = newTeleportObject;
+        }
+        
+        public void SetTeleportDestination6(GameObject newDestination)
+        {
+            teleportDestination6 = newDestination;
         }
         
         public void SetTeleportRange(float newRange)
