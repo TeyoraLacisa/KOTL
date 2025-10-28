@@ -11,7 +11,8 @@ public class Teleport5Unlocker : MonoBehaviour
     [Header("Text Display")]
     [SerializeField] private GameObject textObject; // Text to display
     [SerializeField] private float textDisplayTime = 2f; // How long to show text
-    
+    [SerializeField] private GameObject oldtask;
+    [SerializeField] private GameObject newtask;
     [Header("Deactivation Delay")]
     [SerializeField] private float deactivationDelay = 2f; // Delay before object disappears
     
@@ -60,6 +61,8 @@ public class Teleport5Unlocker : MonoBehaviour
             if (hitObject == gameObject)
             {
                 UnlockTeleport5();
+                oldtask.SetActive(false);
+                newtask.SetActive(true);
             }
         }
     }

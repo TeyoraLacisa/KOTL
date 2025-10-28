@@ -31,6 +31,8 @@ namespace HorrorGame.Player
         [SerializeField] private GameObject teleportObject3;
         [SerializeField] private GameObject teleportDestination3;
         [SerializeField] private bool teleport3Unlocked = false;
+        [SerializeField] private GameObject oldtask;
+        [SerializeField] private GameObject house1;
 
         [Header("Teleport 4 Settings")]
         [SerializeField] private GameObject teleportObject4;
@@ -214,6 +216,8 @@ namespace HorrorGame.Player
                         {
                             Vector3 destination = teleportDestination3.transform.position + teleportDestination3.transform.forward * 1f;
                             TeleportPlayer(destination);
+                            oldtask.SetActive(false);
+                            house1.SetActive(true);
                         }
                     }
                     else

@@ -11,6 +11,9 @@ public class ObjectCollector : MonoBehaviour
     [SerializeField] private GameObject trigger1;
     [SerializeField] private GameObject trigger2;
     [SerializeField] private GameObject trigger3;
+    [SerializeField] private GameObject oldtask;
+    [SerializeField] private GameObject newtask;
+    [SerializeField] private GameObject newtask2;
     
     [Header("Activation Objects")]
     [SerializeField] private GameObject lightObject;
@@ -175,6 +178,8 @@ public class ObjectCollector : MonoBehaviour
         if (trigger1Activated && trigger2Activated && trigger3 != null && !trigger3.activeInHierarchy)
         {
             trigger3.SetActive(true);
+            oldtask.SetActive(false);
+            newtask.SetActive(true);
             trigger3Activated = true;
             Debug.Log("Trigger 3 activated and available for interaction!");
         }
@@ -215,6 +220,8 @@ public class ObjectCollector : MonoBehaviour
     void ActivateTrigger3()
     {
         PlayActivateSound();
+        newtask.SetActive(false);
+        newtask2.SetActive(true);
         Debug.Log("Trigger 3 used! Teleport 2 & 3 unlocked, Teleport 1 blocked, and light rotation started.");
         
         // Start rotating the light

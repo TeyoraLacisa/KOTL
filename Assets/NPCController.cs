@@ -19,6 +19,8 @@ public class NPCController : MonoBehaviour
     
     [Header("Text Display")]
     [SerializeField] private GameObject textObject;
+    [SerializeField] private GameObject textObjectA;
+    [SerializeField] private GameObject textObjectB;
     [SerializeField] private float textDisplayTime = 2f;
     
     [Header("NPC Replacement")]
@@ -96,6 +98,8 @@ public class NPCController : MonoBehaviour
         if (isInStartDelay)
         {
             HandleStartDelay();
+            textObjectA.SetActive(false);
+            textObjectB.SetActive(true);
         }
         else if (isExecutingSequence)
         {
