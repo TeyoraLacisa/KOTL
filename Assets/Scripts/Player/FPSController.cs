@@ -144,7 +144,7 @@ namespace HorrorGame.Player
                     if (teleportDestination1 != null)
                     {
                         Vector3 destination = teleportDestination1.transform.position + teleportDestination1.transform.forward * 1f;
-                        TeleportPlayer(destination, "1");
+                        TeleportPlayer(destination);
                     }
                 }
                 else if (teleportObject2 != null && hitObject == teleportObject2)
@@ -152,7 +152,7 @@ namespace HorrorGame.Player
                     if (teleportDestination2 != null)
                     {
                         Vector3 destination = teleportDestination2.transform.position + teleportDestination2.transform.forward * 1f;
-                        TeleportPlayer(destination, "2");
+                        TeleportPlayer(destination);
                     }
                 }
                 else if (teleportObject3 != null && hitObject == teleportObject3)
@@ -160,7 +160,7 @@ namespace HorrorGame.Player
                     if (teleportDestination3 != null)
                     {
                         Vector3 destination = teleportDestination3.transform.position + teleportDestination3.transform.forward * 1f;
-                        TeleportPlayer(destination, "3");
+                        TeleportPlayer(destination);
                     }
                 }
                 else if (teleportObject4 != null && hitObject == teleportObject4)
@@ -168,7 +168,7 @@ namespace HorrorGame.Player
                     if (teleportDestination4 != null)
                     {
                         Vector3 destination = teleportDestination4.transform.position + teleportDestination4.transform.forward * 1f;
-                        TeleportPlayer(destination, "4");
+                        TeleportPlayer(destination);
                     }
                 }
                 else if (teleportObject5 != null && hitObject == teleportObject5)
@@ -176,7 +176,7 @@ namespace HorrorGame.Player
                     if (teleportDestination5 != null)
                     {
                         Vector3 destination = teleportDestination5.transform.position + teleportDestination5.transform.forward * 1f;
-                        TeleportPlayer(destination, "5");
+                        TeleportPlayer(destination);
                     }
                 }
                 else if (teleportObject6 != null && hitObject == teleportObject6)
@@ -184,13 +184,13 @@ namespace HorrorGame.Player
                     if (teleportDestination6 != null)
                     {
                         Vector3 destination = teleportDestination6.transform.position + teleportDestination6.transform.forward * 1f;
-                        TeleportPlayer(destination, "6");
+                        TeleportPlayer(destination);
                     }
                 }
             }
         }
         
-        void TeleportPlayer(Vector3 destination, string teleportType)
+        void TeleportPlayer(Vector3 destination)
         {
             characterController.enabled = false;
             transform.position = destination;
@@ -203,8 +203,6 @@ namespace HorrorGame.Player
             {
                 audioSource.PlayOneShot(teleportSound);
             }
-            
-            Debug.Log($"Teleported {teleportType} to: {destination}");
         }
         
         void RotateCamera180()

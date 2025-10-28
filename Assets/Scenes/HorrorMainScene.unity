@@ -179,6 +179,24 @@ MonoBehaviour:
   audioSource: {fileID: 0}
   footstepSounds: []
   footstepInterval: 0.5
+  teleportObject1: {fileID: 0}
+  teleportDestination1: {fileID: 0}
+  teleportObject2: {fileID: 0}
+  teleportDestination2: {fileID: 0}
+  teleportObject3: {fileID: 0}
+  teleportDestination3: {fileID: 0}
+  teleportObject4: {fileID: 0}
+  teleportDestination4: {fileID: 0}
+  teleportObject5: {fileID: 0}
+  teleportDestination5: {fileID: 0}
+  teleportObject6: {fileID: 0}
+  teleportDestination6: {fileID: 0}
+  teleportRange: 3
+  teleportKey: 101
+  teleportSound: {fileID: 0}
+  teleportLayerMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
 --- !u!143 &237460572
 CharacterController:
   m_ObjectHideFlags: 0
@@ -1055,6 +1073,7 @@ MonoBehaviour:
   lighterSlotIndex: 1
   lighterInHand: {fileID: 0}
   handPosition: {fileID: 687961481}
+  cameraSetup: {fileID: 0}
   fuelSlider: {fileID: 0}
   fuelText: {fileID: 0}
 --- !u!4 &969542327
